@@ -102,8 +102,7 @@ class StudentController extends Controller
             'stage_id'=>$request->stage_id,
             'image' => $imagePath,
             'email'=>$request->email,
-            'email'=>$request->email,
-        ]);
+         ]);
 
         return $student;
        }
