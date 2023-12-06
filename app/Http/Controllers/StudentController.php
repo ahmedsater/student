@@ -79,7 +79,7 @@ class StudentController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request,$id)
+    public function update(UpdateStudentRequest $request,$id)
     {
         // ==========
         $student = Student::findOrFail($id);
@@ -87,11 +87,12 @@ class StudentController extends Controller
         // dd(!$request->hasFile('image'));
         if($request->hasFile('image')) {
             $file = $request->file('image');
-            $fileName = time().'.'. $file->extension();
-            $file->move(public_path('upload'), $fileName);
+            $fileName2 = time().'.'. $file->extension();
+            $fileName=  $file->move(public_path('\upload'), $fileName2);
             $imagePath=$fileName;
         }
-        // dd($imagePath);
+        dd($imagePath);
+        // dd($request->hasFile('image'));
         $student->update([
             'name'=>$request->name,
             'birthday'=>$request->birthday,
@@ -106,14 +107,7 @@ class StudentController extends Controller
 
         return $student;
        }
-       function getImageAttribute($image)
-    {
-        if($image != null) {
-            return asset('upload/'.$image);
-        }
 
-        return null;
-    }
 
     /**
      * Remove the specified resource from storage.

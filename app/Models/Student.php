@@ -26,5 +26,18 @@ class Student extends Model
    {
        return $this->hasMany(Result::class);
    }
+   function getImageAttribute($image)
+   {
+       if($image != null) {
+           return asset('upload/'.$image);
+       }
+
+       return null;
+   }
+//    public $timestamps = false; ايقاف التاريخ
+   public $created_at = false;
+
+//    protected $dateFormat = 'Y-m-d'; عرض الوقت
+
 }
 

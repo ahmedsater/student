@@ -11,7 +11,7 @@ class UpdateStudentRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,14 +23,14 @@ class UpdateStudentRequest extends FormRequest
     {
         return [
 
-                'name' => 'required|string|max:255',
-                'birthday' => 'date',
-                'address' => 'string|max:255',
-                'phone' => 'string|max:20',
-                'city_id' => 'exists:cities,id',
-                'gender_id' => 'exists:genders,id',
-                'stage_id' => 'exists:stages,id',
-                'email' => 'email|unique:students,email,' ,
+                // 'name' => 'required|string|max:255',
+                // 'birthday' => 'date',
+                // 'address' => 'string|max:255',
+                // 'phone' => 'string|max:20',
+                // 'city_id' => 'exists:cities,id',
+                // 'gender_id' => 'exists:genders,id',
+                // 'stage_id' => 'exists:stages,id',
+                // 'email' => 'email|unique:students,email,' ,
                 'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
 
         ];

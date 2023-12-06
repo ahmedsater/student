@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 Route::post('/index',[StudentController::class,'index']);
 Route::post('/create',[StudentController::class,'create']);
 Route::get('/show/{id}',[StudentController::class,'show']);
-Route::put('/update/{id}',[StudentController::class,'update']);
+Route::post('/update/{id}',[StudentController::class,'update']);
 // Route::resource('/student/{id}',[StudentController::class,'update']);
 
 
